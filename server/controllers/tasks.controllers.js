@@ -31,6 +31,11 @@ export const  updateTask = (req , res) => {
 
 export const  deleteTask = async(req , res) => {
     const id = req.params.id;
-    const [result] = await pool.query('SELECT * FROM tasks WHERE id = ?', [id]);
-    res.send = result
+    const [result] = await pool.query('DELETE FROM tasks WHERE id = ?', [id]);
+    
+    if( result.affectedRows === 0 ){
+        return res.status(404).json({message: "Task not found"});
+    }
+    
+    return res.status(204);
 };
