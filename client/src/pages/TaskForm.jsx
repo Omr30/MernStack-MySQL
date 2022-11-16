@@ -10,10 +10,8 @@ const TaskForm = () => {
                 description: "",
             }}
             onSubmit={async(values, actions) => {
-                console.log(values)
                 try{
-                    const response = await createTaskRequest(values)
-                    console.log(response)
+                    await createTaskRequest(values)
                     actions.resetForm()
                 } catch (error) {
                     console.error(error)

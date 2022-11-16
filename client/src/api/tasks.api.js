@@ -9,7 +9,11 @@ const getTaskRequest = async() =>
 const createTaskRequest = async(task) => 
     await axios.post(`${url}/tasks`, task)
 
+const deleteTaskRequest = async(id) =>
+    await axios.delete(`${url}/tasks/${id}`)
+
 export {
     createTaskRequest,
-    getTaskRequest
+    getTaskRequest,
+    deleteTaskRequest
 }
