@@ -1,5 +1,15 @@
 import axios from 'axios'
 
+const url = 'http://localhost:8080';
 
-export const createTaskRequest = async(task) => 
-    await axios.post('http://localhost:8080/tasks', task)
+const getTaskRequest = async() => 
+    await axios.get(`${url}/tasks`)
+
+
+const createTaskRequest = async(task) => 
+    await axios.post(`${url}/tasks`, task)
+
+export {
+    createTaskRequest,
+    getTaskRequest
+}
